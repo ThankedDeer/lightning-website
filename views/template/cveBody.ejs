@@ -1,0 +1,103 @@
+<body  ondragstart="return false" onselectstart="return false" oncontextmenu="return false" >
+
+
+    
+
+    <div class="row">
+      <div class="col-1">
+        <button id="btna1"  onclick="window.print()" ><a id="imprimira" href="">Imprimir</a></button>
+      </div>
+  
+  
+      <div class="col-10 lalo1">
+  
+          <div class="centrar">
+              <img id="imgbody" src="consCSS/css/images/Screenshot_1.png" alt="">
+              <br>
+              
+              <h3> <b>A QUIEN CORRESPONDA:</b></h3>
+            <br>
+            <p>La que suscribe Encargada de la Subdirección de Servicios Escolares de la
+                <b> UNIVERSIDAD TECNOLÓGICA DE AGUASCALIENTES CON CLAVE DE LA
+                    INSTITUCIÓN:</b> 01MSU0050W <b>Y DE CLAVE DE ESCUELA:</b> 01EUT0001U, hace constar
+                que
+            </p>
+            <br>
+
+
+            <b>
+                <div><h3 class="nombre" id="nombre"></h3></div>
+            </b>
+            
+            <br>
+            <p>Está inscrito(a) y cursando el <b id="cuatrimestre"></b> cuatrimestre de la carrera de 
+                <b id="Carrera"></b>
+                 con número de matrícula <b id="Matricula"></b>  
+                
+            </p>
+            <br>
+            <p>
+                Se extiende la presente constancia para los fines legales que el interesado(a)
+                convenga en la ciudad de Aguascalientes, capital del estado del mismo nombre, a los
+                veintisiete días del mes de enero del año dos mil veintidos.
+            </p>
+            <br>
+
+            <b>Atentamente:</b>
+
+            <p>
+                <img id="firma" src="img/firma.jfif" alt="">
+                
+                <b ="nombre">Lic. Ma. Elena Castañeda Morales Encargada de la Subdirección de Servicios Escolares</b>
+            </p>
+  
+  
+             
+              
+          </div>
+      </div>
+  
+      <div class="col-1">
+          <button id="btna2" ><a id="btna" href="http://localhost:3000/menu">Cancelar</a></button>
+      </div>
+  </div>
+  <script>
+          tokenX = sessionStorage.getItem('tToken');
+          const matricula =sessionStorage.getItem('matricula');
+          
+
+        axios.defaults.headers.common = {
+                'Authorization': 'Bearer ' + tokenX
+            };
+          axios.get('http://localhost:3000/consultaNombre/'+matricula)
+          .then(function (response) {
+              console.log(response);
+
+              var nom = document.createTextNode(response.data[0].Nombre + " " + response.data[0].Ape_Pa + " " + response.data[0].Ape_Ma);
+              var cua = document.createTextNode(response.data[0].Cuatrimestre);
+              var carr = document.createTextNode(response.data[0].Carrera);
+              var matri  = document.createTextNode(response.data[0].Matricula);
+
+              var h3nombre = document.getElementById('nombre');
+              var cuatri = document.getElementById('cuatrimestre');
+              var carrera = document.getElementById('Carrera');
+              var mat = document.getElementById('Matricula');
+
+              
+              h3nombre.appendChild(nom);
+              cuatri.appendChild(cua);
+              carrera.appendChild(carr);
+              mat.appendChild(matri);
+
+
+
+
+          })
+          .catch(function (error) {
+              // manejar error
+              console.log(error);
+          });
+</script>
+ 
+  </body>
+

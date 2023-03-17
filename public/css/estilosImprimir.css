@@ -1,0 +1,43 @@
+body{
+    background-color: #ddd;
+}
+section{
+    padding: 40px;
+}
+
+#btn1{
+    background-color:#001771;
+    padding: 5px 15px;
+    font-size: 1em;
+    display: block;
+    position: absolute;
+    top: 400px;
+    left: 150px;
+}
+
+.card{
+    border-color: black;
+    border-radius: 10px;
+    margin: 108px;
+    margin-top: 130px;
+    padding: 5px 15px;
+    font-size: 1em;
+    width: 150px;
+    height: 60px;
+    padding: 0px;
+    text-align: center;
+}
+
+#btn2{
+    background-color:#001771;
+    padding: 5px 15px;
+    font-size: 1em;
+    position: absolute;
+    top: 400px;
+    right: 150px;
+}
+
+.a_imprimir a {
+    text-decoration: none;
+    color: white;
+}

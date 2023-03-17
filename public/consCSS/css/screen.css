@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;400&display=swap');
+
+.estilobody{
+    font-size: 16px;
+}
+.centrar{
+    width: 60%;
+    margin: 0 auto;
+}
+#imgbody{
+    margin: auto;
+    display: block;
+}
+*{
+    font-family: 'Albert Sans', sans-serif;
+    text-align: justify;
+    line-height: 22px;
+}
+h3{
+    font-size:16px ;
+}
+.nombre{
+    text-align: center;
+}
+
+#aside a{
+    text-decoration: none;
+    background-color:#001771;
+    padding: 5px 15px;
+    font-size: 1em;
+    display: block;
+    position: fixed;
+    top: 400px;
+    left: 150px;
+    color: white;
+    
+    
+}
+#btna{
+    text-decoration: none;
+    color: white;
+    background-color:#001771;
+    
+}
+#btna2{
+    background-color: #001771;
+    padding: 5px 15px;
+    font-size: 1em;
+    display: block;
+    position: fixed;
+    top: 400px;
+    right:150px;
+}
+#btna1{
+    background-color: #001771;
+    padding: 5px 15px;
+    font-size: 1em;
+    display: block;
+    position: fixed;
+    top: 400px;
+    left:150px;
+    color: white;
+    
+}
+#firma{
+    display: block;
+    width: 200px;
+    margin: auto;
+}
+#nombre{
+    font-weight: bolder;
+}
+
+table{
+  width: 70%;
+  margin: auto;
+}
+td{
+    border: solid #d4d6de 1px;
+  
+    text-align: center; 
+}
+th{
+    border: solid #d4d6de 1px;
+    background-color: #e39413;
+    color: black;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: white; 
+ }
+a:hover {
+    color: grey;
+    
+}
+#btna:hover{
+    color: gray;
+}

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;400&display=swap');
+
+
+/* -- Hide screen specific elements -- */
+#nav,
+#footer .footer-links,
+#feature a.prev,
+#feature a.next,
+a.print-preview,
+#btna1,#btna2{
+    display: none;
+}
+
+
+
+a:link:after,
+a:visited:after {
+  content: " (" attr(href) ") ";
+  font-size: 80%;
+  text-decoration: none;
+}
+
+
+
+.estilobody{
+    font-size: 16px;
+}
+.centrar{
+    
+    margin: 0 auto;
+}
+#imgbody{
+    margin: auto;
+    display: block;
+}
+*{
+    font-family: 'Albert Sans', sans-serif;
+    text-align: justify;
+    line-height: 22px;
+    
+}
+h3{
+    font-size:16px ;
+}
+.nombre{
+    text-align: center;
+   
+    
+}
+#firma{
+    display: block;
+    width: 200px;
+    margin: auto;
+}
+#nombre{
+    font-weight: bolder;
+}
+
+table{
+  width: 90%;
+  margin: auto;
+}
+td{
+    border: solid #d4d6de 1px;
+    padding-left: 9px;
+    
+}
+th{
+    border: solid #d4d6de 1px;
+    background-color: #e39413;
+    color: black;
+    text-align: center;
+}
+*{ forced-color-adjust:exact; -webkit-print-color-adjust: exact; print-color-adjust: exact; };

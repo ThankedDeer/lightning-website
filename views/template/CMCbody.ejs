@@ -1,0 +1,121 @@
+<body  ondragstart="return false" onselectstart="return false" oncontextmenu="return false" onload="selProducto()">
+
+  <h1>ACTUALIZAR PRODUCTO</h1>
+  <form>
+    <div class="container">
+    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="selectProducto" onchange="select1()">
+        <option selected>Open this select menu</option>
+      </select>
+  </form>
+      
+  
+    <div class="row">
+      <form action="">
+        <div class="form-group row">
+        <label>ID</label>
+        </div>
+        <div class="col-sm-4" >
+        <input type="text" class="form-control" id="Producto" placeholder="" disabled>
+        <label>Categoria</label>
+        </div>   
+        <div class="col-sm-4" >
+        <input type="text" class="form-control" id="Categoria" placeholder="" disabled>
+        <label>Nombre</label>
+        </div>   
+        <div class="col-sm-4" >
+        <input type="text" class="form-control" id="nombre" placeholder="" disabled>
+      </div>
+      <label>Precio</label>   
+        <div class="col-sm-4" >
+        <input type="text" class="form-control" id="precio" placeholder="" disabled>
+        </div>
+      </form>
+      </div>
+    </div>
+    
+    <button type="button" class="btn" onclick="desbloquear()">Editar</button>
+    <button type="button" class="btn" onclick="update()">Editar</button>
+    <button type="button"><a href="http://localhost:3000/menu">Cancelar</a></button>
+
+    <script>
+      tokenX = sessionStorage.getItem('tToken');
+      const matricula =sessionStorage.getItem('matricula');
+      
+  
+    axios.defaults.headers.common = {
+            'Authorization': 'Bearer ' + tokenX
+        };
+  
+  
+        function desbloquear(){
+            var Producto=document.getElementById('Producto');
+            var Categoria=document.getElementById('Categoria');
+            var nombre=document.getElementById('nombre');
+            var precio=document.getElementById('precio');
+            nombre.removeAttribute("disabled");
+            precio.removeAttribute("disabled");  
+           }
+  
+      function selProducto(){ 
+        document.getElementById('selectProducto').innerHTML="";
+        axios.get('http://localhost:3000/productos')
+        .then((response)=>{
+            response.data.forEach((element)=>{
+                opt= document.createElement('option');
+                opt.value=element.idProducto;
+                opt.innerHTML=element.Nombre;
+               
+                document.getElementById('selectProducto').appendChild(opt);
+            });
+        })
+        .catch((error)=>{
+            console.log(error);
+        })}
+  
+  
+        function select1(){
+            var seleccionado=selectProducto.selectedOptions[0].value;
+            console.log(seleccionado);
+            var Producto=document.getElementById('Producto');
+            var Categoria=document.getElementById('Categoria');
+            var nombre=document.getElementById('nombre');
+            var precio=document.getElementById('precio');
+            axios.get('http://localhost:3000/productos/'+seleccionado)
+            .then((response)=>{
+              const data = response.data;
+              console.log(data);
+              Producto.value=response.data[0].idProducto;
+              Categoria.value=response.data[0].idCategoria;
+              nombre.value=response.data[0].Nombre;
+              precio.value=response.data[0].Precio;
+            })
+            .catch((error)=>{
+              console.log(error);
+            });
+          }
+  
+      function update(){
+        var c={};
+        c.idProducto = document.getElementById('Producto').value
+        c.Nombre =  document.getElementById('nombre').value
+        c.Precio =  document.getElementById('precio').value
+  
+        axios.put('http://localhost:3000/productos/update', c)
+        .then((response)=>{
+          // var table =document.getElementById('table');
+          // var longTable = table.data.length;
+          // var cantidad = response.data.length;
+  
+          // for (i = 0; i < cantidad; i++) {
+          //   var row = table.insertR
+          // }
+  
+          console.log(response);
+          })
+          .catch((error)=>{
+            console.log(error);
+          })
+    }
+    
+</script>  
+</body>
